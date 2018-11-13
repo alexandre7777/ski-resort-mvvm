@@ -1,4 +1,4 @@
-package com.alexandre.skiresort.model
+package com.alexandre.skiresort.db.model
 
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
