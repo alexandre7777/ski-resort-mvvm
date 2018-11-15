@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.alexandre.skiresort.R
-import com.alexandre.skiresort.model.SkiResort
+import com.alexandre.skiresort.domain.model.SkiResort
 
 class SkiResortViewHolder(view: View)  : RecyclerView.ViewHolder(view) {
     private val skiResortName: TextView = view.findViewById(R.id.skiResortName)

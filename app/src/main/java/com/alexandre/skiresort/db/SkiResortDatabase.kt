@@ -4,7 +4,7 @@ import android.arch.persistence.room.Database
 import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
 import android.content.Context
-import com.alexandre.skiresort.model.SkiResort
+import com.alexandre.skiresort.db.model.SkiResort
 
 /**
  * Database to store all ski resorts

@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import com.alexandre.skiresort.Injection
 import com.alexandre.skiresort.R
-import com.alexandre.skiresort.model.SkiResort
+import com.alexandre.skiresort.domain.model.SkiResort
 import kotlinx.android.synthetic.main.activity_ski_resort_list.*
 
 class SkiResortListActivity : AppCompatActivity() {

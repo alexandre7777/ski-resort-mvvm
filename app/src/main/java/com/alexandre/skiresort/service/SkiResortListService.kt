@@ -2,7 +2,7 @@ package com.alexandre.skiresort.service
 
 import android.util.Log
 import com.alexandre.skiresort.BuildConfig
-import com.alexandre.skiresort.model.SkiResort
+import com.alexandre.skiresort.service.model.SkiResort
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
