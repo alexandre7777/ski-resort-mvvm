@@ -14,10 +14,21 @@
         android:layout_marginEnd="8dp"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/favoriteIV"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Val d'Isère" />
+
+    <ImageView
+        android:id="@+id/favoriteIV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/ic_star_border_black_24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/favorites"/>
 
     <TextView
         android:id="@+id/countryTxt"
@@ -96,7 +107,8 @@
         android:layout_marginTop="8dp"
         android:src="@drawable/ic_snow_lift"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/skiResortSlopesKm" />
+        app:layout_constraintTop_toBottomOf="@+id/skiResortSlopesKm"
+        android:contentDescription="@string/icon_lift"/>
 
     <TextView
         android:id="@+id/skiResortLifts"
@@ -120,7 +132,8 @@
         android:src="@drawable/ic_snow_slopes"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        android:contentDescription="@string/icon_slopes"/>
 
     <TextView
         android:id="@+id/skiResortSlopes"
