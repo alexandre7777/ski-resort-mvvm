@@ -40,7 +40,8 @@ fun toViewModelFromDb(skiResortList: List<com.alexandre.skiresort.db.model.SkiRe
                 it.mountainRange,
                 it.slopeKm,
                 it.lifts,
-                it.slopes
+                it.slopes,
+                it.isFav
         )
     }
 }

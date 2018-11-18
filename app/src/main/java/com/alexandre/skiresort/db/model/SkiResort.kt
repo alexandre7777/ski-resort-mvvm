@@ -11,4 +11,5 @@ data class SkiResort(@PrimaryKey @field:SerializedName("ski_resort_id") val skiR
                      @field:SerializedName("mountain_range") val mountainRange: String = "",
                      @field:SerializedName("slope_km") val slopeKm: Int = 0,
                      @field:SerializedName("lifts") val lifts: Int = 0,
-                     @field:SerializedName("slopes") val slopes: Int = 0)
+                     @field:SerializedName("slopes") val slopes: Int = 0,
+                     @field:SerializedName("is_fav") var isFav: Boolean = false)

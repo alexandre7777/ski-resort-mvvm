@@ -9,4 +9,9 @@ class SkiResortListViewModel(private val skiResortRepo: SkiResortRepo) : ViewMod
 
     //list of all the ski resorts
     val skiResortList : LiveData<List<SkiResort>> = skiResortRepo.getAllSkiResorts()
+
+    //change the fav value
+    fun toggleFav(skiResort: SkiResort) {
+        skiResortRepo.updateSkiResortFav(skiResort.skiResortId, !skiResort.isFav)
+    }
 }

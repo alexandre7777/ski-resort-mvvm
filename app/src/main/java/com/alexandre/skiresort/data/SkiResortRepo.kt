@@ -3,6 +3,7 @@ package com.alexandre.skiresort.data
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.Transformations
 import com.alexandre.skiresort.db.SkiResortDao
+import com.alexandre.skiresort.db.model.SkiResort
 import com.alexandre.skiresort.domain.model.toDbModel
 import com.alexandre.skiresort.domain.model.toViewModelFromDb
 import com.alexandre.skiresort.service.SkiResortListService
@@ -15,7 +16,7 @@ class SkiResortRepo(private val skiResortListService: SkiResortListService, priv
         requestSkiResort(skiResortListService, {
             skiResorts ->
             ioExecutor.execute {
-                skiResortDao.insertAll(toDbModel(skiResorts))
+                skiResortDao.insertAll(prepareInsertWithFavStatus(toDbModel(skiResorts)))
             }
         }, { error ->
 
@@ -23,5 +24,21 @@ class SkiResortRepo(private val skiResortListService: SkiResortListService, priv
         return Transformations.map(skiResortDao.getAllSkiResorts()) { skiResortList ->
             toViewModelFromDb(skiResortList)
         }
+    }
+
+    fun updateSkiResortFav(skiResortId: Int, isFav: Boolean) {
+        ioExecutor.execute {
+            skiResortDao.updateFav(skiResortId, isFav)
+        }
+    }
+
+    private fun prepareInsertWithFavStatus(skiResorts : List<SkiResort>): List<SkiResort> {
+        val mutableIterator = skiResorts.iterator()
+
+        // iterator() extension is called here
+        for (skiResort in mutableIterator) {
+            skiResort.isFav = skiResortDao.isFav(skiResort.skiResortId)
+        }
+        return skiResorts
     }
 }

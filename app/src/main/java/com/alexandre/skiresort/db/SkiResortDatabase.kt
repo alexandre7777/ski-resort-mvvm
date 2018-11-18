@@ -11,7 +11,7 @@ import com.alexandre.skiresort.db.model.SkiResort
  */
 @Database(
         entities = [SkiResort::class],
-        version = 1,
+        version = 2,
         exportSchema = false
 )
 abstract class SkiResortDatabase : RoomDatabase() {
@@ -32,6 +32,7 @@ abstract class SkiResortDatabase : RoomDatabase() {
         private fun buildDatabase(context: Context) =
                 Room.databaseBuilder(context.applicationContext,
                         SkiResortDatabase::class.java, "skiResorts.db")
+                        .fallbackToDestructiveMigration()
                         .build()
     }
 }
