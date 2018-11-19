@@ -4,4 +4,7 @@
     <string name="mountain">Mountain : </string>
     <string name="number_of_km">Number of KM of slopes : </string>
     <string name="disclaimer">This data set is used for education purpose only, it may be inaccurate.</string>
+    <string name="favorites">favorites</string>
+    <string name="icon_lift">icon lift</string>
+    <string name="icon_slopes">icon slopes</string>
 </resources>

@@ -6,4 +6,5 @@ data class SkiResort(val skiResortId: Int,
                      val mountainRange: String = "",
                      val slopeKm: Int = 0,
                      val lifts: Int = 0,
-                     val slopes: Int = 0)
+                     val slopes: Int = 0,
+                     val isFav: Boolean = false)
