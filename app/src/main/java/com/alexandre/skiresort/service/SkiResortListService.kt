@@ -1,5 +1,7 @@
 package com.alexandre.skiresort.service
 
+import android.arch.lifecycle.LiveData
+import android.arch.lifecycle.MutableLiveData
 import android.util.Log
 import com.alexandre.skiresort.BuildConfig
 import com.alexandre.skiresort.service.model.SkiResort
@@ -20,8 +22,9 @@ private const val TAG = "SkiResortListService"
 fun requestSkiResort(
         service: SkiResortListService,
         onSuccess: (skiResorts: List<SkiResort>) -> Unit,
-        onError: (error: String) -> Unit) {
+        onError: (error: String) -> Unit) : MutableLiveData<List<SkiResort>> {
 
+    val result =  MutableLiveData<List<SkiResort>>()
     service.getSkiResorts().enqueue(
             object : Callback<List<SkiResort>> {
                 override fun onFailure(call: Call<List<SkiResort>>?, t: Throwable) {
@@ -37,12 +40,14 @@ fun requestSkiResort(
                     if (response.isSuccessful) {
                         val skiResorts = response.body() ?: emptyList()
                         onSuccess(skiResorts)
+                        result.value = skiResorts
                     } else {
                         onError(response.errorBody()?.string() ?: "Unknown error")
                     }
                 }
             }
     )
+    return result
 }
 
 interface SkiResortListService{
@@ -50,7 +55,7 @@ interface SkiResortListService{
     /**
      * Get ski resort list.
      */
-    @GET("v0/b/ski-resort-be7dc.appspot.com/o/resort.json?alt=media&token=3fe8d96d-1d30-47b6-b849-4c5aec831853")
+    @GET("v0/b/ski-resort-be7dc.appspot.com/o/resort-weather.json?alt=media&token=f40092bf-2e06-4077-a84e-0906b834d487")
     fun getSkiResorts(): Call<List<SkiResort>>
 
     companion object {

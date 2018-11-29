@@ -10,7 +10,8 @@ fun toViewModel(skiResortList: List<com.alexandre.skiresort.service.model.SkiRes
                 it.mountainRange,
                 it.slopeKm,
                 it.lifts,
-                it.slopes
+                it.slopes,
+                weather = it.weather
         )
     }
 }
