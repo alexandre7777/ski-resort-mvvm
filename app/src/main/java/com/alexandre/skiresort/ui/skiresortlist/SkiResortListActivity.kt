@@ -39,7 +39,6 @@ class SkiResortListActivity : AppCompatActivity() {
          */
         viewModelSkiResortList.skiResortList.observe(this, Observer<List<SkiResort>> {
             adapter.submitList(it)
-            Log.d("tag", "*********" + it.toString())
         })
     }
 }
