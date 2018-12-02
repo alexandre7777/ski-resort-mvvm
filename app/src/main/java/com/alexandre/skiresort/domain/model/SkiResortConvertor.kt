@@ -1,5 +1,7 @@
 package com.alexandre.skiresort.domain.model
 
+import com.alexandre.skiresort.R
+
 fun toViewModel(skiResortList: List<com.alexandre.skiresort.service.model.SkiResort>) :
         List<SkiResort> {
     return skiResortList.map {
@@ -11,7 +13,7 @@ fun toViewModel(skiResortList: List<com.alexandre.skiresort.service.model.SkiRes
                 it.slopeKm,
                 it.lifts,
                 it.slopes,
-                weather = it.weather
+                weather = getDrawableForString(it.weather)
         )
     }
 }
@@ -29,7 +31,7 @@ fun toViewModel(skiResortListService: List<com.alexandre.skiresort.service.model
                 it.lifts,
                 it.slopes,
                 getFavFromList(skiResortListDb, it.skiResortId),
-                weather = it.weather
+                weather = getDrawableForString(it.weather)
         )
     }
 }
@@ -75,4 +77,14 @@ fun toViewModelFromDb(skiResortList: List<com.alexandre.skiresort.db.model.SkiRe
                 it.isFav
         )
     }
+}
+
+fun getDrawableForString(weatherString: String) : Int? {
+    when (weatherString) {
+        "sunny" -> return R.drawable.ic_wb_sunny
+        "cloudy" -> return R.drawable.ic_wb_cloudy
+        "snow" -> return R.drawable.ic_ac_unit
+        "rain" -> return R.drawable.ic_grain
+    }
+    return null
 }

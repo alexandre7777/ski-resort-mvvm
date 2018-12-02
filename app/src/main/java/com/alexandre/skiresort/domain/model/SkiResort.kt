@@ -8,4 +8,4 @@ data class SkiResort(val skiResortId: Int,
                      val lifts: Int = 0,
                      val slopes: Int = 0,
                      val isFav: Boolean = false,
-                     val weather: String = "")
+                     val weather: Int? = null)
