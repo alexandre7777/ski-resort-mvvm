@@ -17,6 +17,7 @@ class SkiResortViewHolder(view: View)  : RecyclerView.ViewHolder(view) {
     private val skiResortLifts: TextView = view.findViewById(R.id.skiResortLifts)
     private val skiResortSlopes: TextView = view.findViewById(R.id.skiResortSlopes)
     private val favoriteIV: ImageView = view.findViewById(R.id.favoriteIV)
+    private val weatherIV: ImageView = view.findViewById(R.id.weatherIV)
 
     fun bind(skiResort: SkiResort?, toggleFav: (View?, SkiResort) -> Unit) {
         if (skiResort != null) {
@@ -40,6 +41,11 @@ class SkiResortViewHolder(view: View)  : RecyclerView.ViewHolder(view) {
             }
             favoriteIV.setOnClickListener{
                 toggleFav(it, skiResort)
+            }
+            weather?.let {
+                weatherIV.setImageResource(it)
+            } ?: run {
+                weatherIV.setImageDrawable(null)
             }
         }
     }
