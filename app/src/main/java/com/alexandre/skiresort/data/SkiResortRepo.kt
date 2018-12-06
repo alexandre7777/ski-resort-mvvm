@@ -1,7 +1,6 @@
 package com.alexandre.skiresort.data
 
 import android.arch.lifecycle.*
-import android.util.Log
 import com.alexandre.skiresort.db.SkiResortDao
 import com.alexandre.skiresort.db.model.SkiResort
 import com.alexandre.skiresort.domain.model.toDbModel
@@ -14,8 +13,6 @@ import java.util.concurrent.Executor
 class SkiResortRepo(private val skiResortListService: SkiResortListService, private val skiResortDao: SkiResortDao, private val ioExecutor: Executor) {
 
     fun getAllSkiResorts(): LiveData<List<com.alexandre.skiresort.domain.model.SkiResort>> {
-
-        println("plop")
 
         val result = MediatorLiveData<List<com.alexandre.skiresort.domain.model.SkiResort>>()
 
@@ -57,7 +54,6 @@ class SkiResortRepo(private val skiResortListService: SkiResortListService, priv
                 }
             }
         }
-        println("plop end")
         return result
     }
 
