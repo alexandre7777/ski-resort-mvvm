@@ -34,7 +34,6 @@ class SkiResortRepo(private val skiResortListService: SkiResortListService, priv
                     result.value = toViewModel(it)
                 }
             }
-
                     //combineLatestData(liveData1, liveData2)
         }
         result.addSource(liveDataDb) { value ->
